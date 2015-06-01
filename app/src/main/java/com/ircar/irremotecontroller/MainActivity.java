@@ -48,6 +48,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mCIR = (ConsumerIrManager)getSystemService(Context.CONSUMER_IR_SERVICE);
 
         initSamsung();
+        initSony();
+        initPanasonic();
     }
 
     @Override
@@ -81,6 +83,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         }).start();
     }
 
+    // IR codes taken from http://www.remotecentral.com/cgi-bin/codes/
+
     private void initSamsung() {
         SparseArray<String> irData = new SparseArray<>();
         mIrData.put(R.id.samsung, irData);
@@ -100,8 +104,50 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         irData.put(
                 R.id.voldown,
                 hex2dec("0000 006d 0022 0003 00a9 00a8 0015 003f 0015 003f 0015 003f 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 003f 0015 003f 0015 003f 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 003f 0015 003f 0015 0015 0015 003f 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 003f 0015 0015 0015 003f 0015 003f 0015 003f 0015 003f 0015 0702 00a9 00a8 0015 0015 0015 0e6e"));
-
     }
+
+    private void initSony() {
+        SparseArray<String> irData = new SparseArray<>();
+        mIrData.put(R.id.sony, irData);
+
+        irData.put(
+                R.id.power,
+                hex2dec("0000 0067 0000 000d 0060 0018 0031 0017 0019 0017 0031 0017 0019 0017 0031 0017 0019 0017 0019 0017 0031 0017 0019 0017 0019 0017 0019 0017 0019 03fc"));
+        irData.put(
+                R.id.chup,
+                hex2dec("0000 0067 0000 000d 0060 0018 0019 0017 0019 0017 0019 0017 0019 0017 0031 0017 0019 0017 0019 0017 0031 0017 0019 0017 0019 0017 0019 0017 0019 042c"));
+        irData.put(
+                R.id.chdown,
+                hex2dec("0000 0067 0000 000d 0060 0018 0031 0017 0019 0017 0019 0017 0019 0017 0031 0017 0019 0017 0019 0017 0031 0017 0019 0017 0019 0017 0019 0017 0019 0414"));
+        irData.put(
+                R.id.volup,
+                hex2dec("0000 0067 0000 000d 0060 0018 0019 0017 0031 0017 0019 0017 0019 0017 0031 0017 0019 0017 0019 0017 0031 0017 0019 0017 0019 0017 0019 0017 0019 0414"));
+        irData.put(
+                R.id.voldown,
+                hex2dec("0000 0067 0000 000d 0060 0018 0031 0017 0031 0017 0019 0017 0019 0017 0031 0017 0019 0017 0019 0017 0031 0017 0019 0017 0019 0017 0019 0017 0019 03fc"));
+    }
+
+    private void initPanasonic() {
+        SparseArray<String> irData = new SparseArray<>();
+        mIrData.put(R.id.panasonic, irData);
+
+        irData.put(
+                R.id.power,
+                hex2dec("0000 0048 0000 0018 00c1 00c1 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0090 0030 0091 0030 0090 0030 0090 0030 0091 0030 0090 0030 0090 0030 0091 0030 0090 0030 0090 0030 0091 0030 0030 0030 0840"));
+        irData.put(
+                R.id.chup,
+                hex2dec("0000 0048 0000 0018 00c1 00c1 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0090 0030 0030 0030 0090 0030 0090 0030 0030 0030 0090 0030 0090 0030 0090 0030 0090 0030 0090 0030 0090 0030 0030 0030 0090 0030 0030 0030 0030 0030 0090 0030 0840"));
+        irData.put(
+                R.id.chdown,
+                hex2dec("0000 0048 0000 0018 00c1 00c1 0030 0030 0030 0090 0030 0090 0030 0090 0030 0030 0030 0030 0030 0090 0030 0090 0030 0090 0030 0091 0030 0030 0030 0091 0030 0030 0030 0030 0030 0030 0030 0090 0030 0090 0030 0030 0030 0030 0030 0030 0030 0030 0030 0090 0030 0840"));
+        irData.put(
+                R.id.volup,
+                hex2dec("0000 0048 0000 0018 00c1 00c1 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0090 0030 0030 0030 0030 0030 0091 0030 0090 0030 0091 0030 0090 0030 0090 0030 0091 0030 0090 0030 0090 0030 0030 0030 0090 0030 0090 0030 0030 0030 0840"));
+        irData.put(
+                R.id.voldown,
+                hex2dec("0000 0048 0000 0018 00c1 00c1 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0030 0090 0030 0030 0030 0090 0030 0030 0030 0030 0030 0091 0030 0090 0030 0091 0030 0090 0030 0090 0030 0091 0030 0030 0030 0091 0030 0030 0030 0091 0030 0090 0030 0030 0030 0840"));
+    }
+
 
     protected String hex2dec(String irData) {
         List<String> list = new ArrayList<>(Arrays.asList(irData
