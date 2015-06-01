@@ -85,14 +85,14 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:text="CH DOWN" />
+                android:text="CH -" />
             <Button
                 android:id="@+id/chup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:text="CH UP"/>
+                android:text="CH +"/>
         </RelativeLayout>
     </LinearLayout>
 
